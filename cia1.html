@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Paradigms and Principles</title>
+    <!-- Tailwind CSS CDN for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+        }
+        .container {
+            max-width: 900px;
+        }
+        .heading-1 {
+            color: #1a237e; /* Deep indigo */
+        }
+        .heading-2 {
+            color: #283593; /* Slightly lighter indigo */
+        }
+        .heading-3 {
+            color: #3949ab; /* Medium indigo */
+        }
+        .list-item-title {
+            font-weight: 600;
+        }
+        .separator {
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        /* Presentation-specific styles */
+        .presentation-container {
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .presentation-page {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 2rem;
+            box-sizing: border-box;
+            opacity: 0;
+            pointer-events: none; /* Prevents interaction with hidden pages */
+            transition: opacity 0.5s ease-in-out;
+        }
+        .presentation-page.active {
+            opacity: 1;
+            pointer-events: auto; /* Allows interaction on the active page */
+        }
+        .presentation-nav {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="p-4 sm:p-8">
+    <div class="container mx-auto bg-white shadow-xl rounded-2xl p-6 sm:p-10 presentation-container">
+
+        <!-- All content is now a "page" in the presentation -->
+        <div class="presentation-page active" id="page-0">
+            <!-- Main Title and Intro -->
+            <header class="text-center mb-10">
+                <h1 class="text-5xl sm:text-6xl font-extrabold heading-1 mb-4">The eBook of Modern Web Paradigms</h1>
+                <p class="text-xl font-bold text-gray-800">Full Stack CIA 1 Assignment</p>
+                <div class="mt-4">
+                    <p class="text-lg text-gray-600">Presented by: Vishal Singh (25225028)</p>
+                    <p class="text-sm text-gray-500">1MCA, Christ University, Delhi NCR</p>
+                </div>
+                <p class="text-gray-600 text-lg sm:text-xl mt-6">
+                    Exploring the foundational principles, ethical challenges, and evolution of the World Wide Web.
+                </p>
+            </header>
+        </div>
+
+        <div class="presentation-page" id="page-1">
+            <!-- Chapter 1: Client/Server vs. P2P -->
+            <section class="prose max-w-none text-gray-700 leading-relaxed space-y-6">
+                <h2 class="text-3xl sm:text-4xl font-bold heading-2 mb-4">Chapter 1: The Foundations of Network Architecture</h2>
+                
+                <h3 class="text-2xl sm:text-3xl font-semibold heading-3 mb-3">1. The Client/Server Model vs. The Peer-to-Peer Model</h3>
+                <p>
+                    In the world of networked applications, two fundamental architectures define how devices interact and share resources: the Client/Server model and the Peer-to-Peer (P2P) model.
+                </p>
+
+                <h4 class="text-xl sm:text-2xl font-bold heading-3 mt-8 mb-2">The Client/Server Model</h4>
+                <p>
+                    The Client/Server model is a centralized architecture where powerful computers (servers) provide services and resources to many clients. The relationship is a clear hierarchy: clients initiate requests, and servers fulfill them.
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li><span class="list-item-title">Key characteristics:</span>
+                        <ul class="list-[circle] list-inside pl-4">
+                            <li><strong>Centralization:</strong> All data and resources are managed on a central server.</li>
+                            <li><strong>Single Point of Failure:</strong> The entire system is vulnerable if the server fails.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h4 class="text-xl sm:text-2xl font-bold heading-3 mt-8 mb-2">The Peer-to-Peer (P2P) Model</h4>
+                <p>
+                    The Peer-to-Peer model is a decentralized and distributed architecture. In this model, every device can act as both a client and a server. There is no central authority; all peers are equal.
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li><span class="list-item-title">Key characteristics:</span>
+                        <ul class="list-[circle] list-inside pl-4">
+                            <li><strong>Decentralization:</strong> No central server; data is distributed across all peers.</li>
+                            <li><strong>Fault Tolerance:</strong> The network remains functional even if some peers fail.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="presentation-page" id="page-2">
+            <!-- Chapter 1 continued: Scenarios -->
+            <section class="prose max-w-none text-gray-700 leading-relaxed space-y-6">
+                <h3 class="text-2xl sm:text-3xl font-semibold heading-3 mb-3">Scenarios for Advantage</h3>
+                <p>
+                    The choice between the two models depends on the application's requirements.
+                </p>
+                <p>
+                    The <span class="font-semibold">Client/Server model is more advantageous</span> for scenarios demanding control, security, and consistent performance, such as **online banking** or **corporate networks**.
+                </p>
+                <p>
+                    The <span class="font-semibold">P2P model is more advantageous</span> for scenarios prioritizing resilience and scalability without a central authority, such as **file-sharing networks** or **cryptocurrencies**.
+                </p>
+            </section>
+        </div>
+
+        <div class="presentation-page" id="page-3">
+            <!-- Chapter 2: The Ethics of SEO -->
+            <section class="prose max-w-none text-gray-700 leading-relaxed space-y-6">
+                <h2 class="text-3xl sm:text-4xl font-bold heading-2 mb-4">Chapter 2: The Ethics of Algorithmic Ranking</h2>
+                
+                <h3 class="text-2xl sm:text-3xl font-semibold heading-3 mb-3">2. The Ethical Implications of Search Engine Optimization (SEO)</h3>
+                <p>
+                    Search engines are the primary gateway to information, and their ranking algorithms hold immense power. SEO is the practice of increasing a website's visibility by making its content more appealing to these algorithms.
+                </p>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>
+                        <span class="list-item-title">Manipulation vs. Value:</span> "Black hat" SEO uses deceptive tactics to artificially boost rankings, undermining search integrity.
+                    </li>
+                    <li>
+                        <span class="list-item-title">Fairness and Information Access:</span> Well-funded organizations can dominate search results, potentially drowning out smaller, independent voices.
+                    </li>
+                </ul>
+                <h4 class="text-xl sm:text-2xl font-bold heading-3 mt-8 mb-2">Should all content have an equal opportunity to rank?</h4>
+                <p>
+                    A purely egalitarian approach would lead to chaotic and unhelpful search results. However, the current model can be improved by prioritizing a "people-first" approach that rewards genuinely helpful content, increasing transparency, and effectively penalizing malicious tactics.
+                </p>
+            </section>
+        </div>
+
+        <div class="presentation-page" id="page-4">
+            <!-- Chapter 3: Web 3.0 -->
+            <section class="prose max-w-none text-gray-700 leading-relaxed space-y-6">
+                <h2 class="text-3xl sm:text-4xl font-bold heading-2 mb-4">Chapter 3: The Promise and Peril of Web 3.0</h2>
+                
+                <h3 class="text-2xl sm:text-3xl font-semibold heading-3 mb-3">3. A Critical Analysis of Web 3.0</h3>
+                <p>
+                    Web 3.0 aims to be a decentralized, user-controlled internet, built on technologies like blockchain. This shift has profound implications for **user privacy**, **data ownership**, and **content moderation**.
+                </p>
+
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li><span class="list-item-title">User Privacy:</span> Offers enhanced privacy through decentralized identity, but the public nature of blockchains can pose risks.</li>
+                    <li><span class="list-item-title">Data Ownership:</span> Gives users true ownership of digital assets via NFTs, but requires a high degree of user responsibility.</li>
+                    <li><span class="list-item-title">Content Moderation:</span> Could be managed by community-driven DAOs, but faces challenges with enforcement due to data immutability.</li>
+                </ul>
+            </section>
+        </div>
+
+        <div class="presentation-page" id="page-5">
+            <!-- Chapter 4: HTML5 -->
+            <section class="prose max-w-none text-gray-700 leading-relaxed space-y-6">
+                <h2 class="text-3xl sm:text-4xl font-bold heading-2 mb-4">Chapter 4: The Evolution of Web Standards</h2>
+                
+                <h3 class="text-2xl sm:text-3xl font-semibold heading-3 mb-3">4. HTML5: The Rise of Semantic Structure and Powerful APIs</h3>
+                <p>
+                    HTML5 marked a pivotal moment in web development, shifting the language to a robust platform for building modern web applications.
+                </p>
+
+                <h4 class="text-xl sm:text-2xl font-bold heading-3 mt-8 mb-2">Semantic Tags</h4>
+                <p>
+                    Tags like <code class="text-sm bg-gray-100 p-1 rounded">
+                    &lt;header&gt;</code> and <code class="text-sm bg-gray-100 p-1 rounded">&lt;article&gt;</code> provide meaning and structure to content, enhancing **accessibility** and **maintainability**.
+                </p>
+
+                <h4 class="text-xl sm:text-2xl font-bold heading-3 mt-8 mb-2">APIs (Application Programming Interfaces)</h4>
+                <p>
+                    HTML5 APIs allow for dynamic, interactive experiences directly in the browser. They improve **performance** with features like hardware-accelerated graphics and enhance **maintainability** by standardizing core functionalities.
+                </p>
+            </section>
+        </div>
+
+        <!-- Presentation Navigation Controls -->
+        <footer class="presentation-nav">
+            <button id="prevBtn" class="bg-gray-200 text-gray-800 font-bold py-2 px-4 rounded-full shadow-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed">
+                Previous
+            </button>
+            <span id="page-indicator" class="text-lg font-bold text-gray-700">1 / 6</span>
+            <button id="nextBtn" class="bg-indigo-600 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:bg-indigo-700">
+                Next
+            </button>
+        </footer>
+    </div>
+
+    <script>
+        // Get all the pages and navigation buttons
+        const pages = document.querySelectorAll('.presentation-page');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const pageIndicator = document.getElementById('page-indicator');
+        let currentPage = 0;
+
+        /**
+         * Hides all pages and shows the one at the specified index.
+         * Also updates the navigation buttons and page indicator.
+         * @param {number} index The index of the page to show.
+         */
+        function showPage(index) {
+            // Remove 'active' class from all pages and add to the new one
+            pages.forEach(page => {
+                if (page.classList.contains('active')) {
+                    // Start fade-out effect for the current page
+                    page.style.opacity = '0';
+                    page.style.pointerEvents = 'none';
+                    setTimeout(() => {
+                        page.classList.remove('active');
+                    }, 500); // Wait for the transition to finish
+                }
+            });
+
+            // Set a timeout to prevent the new page from appearing instantly
+            setTimeout(() => {
+                const newPage = pages[index];
+                newPage.classList.add('active');
+                // Start fade-in effect for the new page
+                newPage.style.opacity = '1';
+                newPage.style.pointerEvents = 'auto';
+
+                // Update page number indicator
+                pageIndicator.textContent = `${index + 1} / ${pages.length}`;
+
+                // Disable/enable buttons based on current page
+                prevBtn.disabled = index === 0;
+                nextBtn.disabled = index === pages.length - 1;
+
+                currentPage = index;
+            }, 100); // Small delay to ensure CSS transition is triggered
+        }
+
+        // Event listener for the 'Next' button
+        nextBtn.addEventListener('click', () => {
+            if (currentPage < pages.length - 1) {
+                showPage(currentPage + 1);
+            }
+        });
+
+        // Event listener for the 'Previous' button
+        prevBtn.addEventListener('click', () => {
+            if (currentPage > 0) {
+                showPage(currentPage - 1);
+            }
+        });
+
+        // Event listeners for keyboard arrow keys
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' && currentPage < pages.length - 1) {
+                showPage(currentPage + 1);
+            } else if (e.key === 'ArrowLeft' && currentPage > 0) {
+                showPage(currentPage - 1);
+            }
+        });
+
+        // Show the first page when the document loads
+        window.onload = function() {
+            showPage(0);
+        };
+    </script>
+</body>
+</html>
